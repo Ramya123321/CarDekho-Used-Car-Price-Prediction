@@ -1,10 +1,11 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
-import Home, Filtering, Analysis, Prediction
+import Home, Filtering, Analysis, Predict
 from PIL import Image
+from streamlit_extras.dataframe_explorer import dataframe_explorer
 
-img = Image.open("C:\Users\ukudh\OneDrive\Desktop\MDTE11\Project\CarDheko\CarDekho.jpg")
-st.set_page_config(page_title = 'Cardekho Resale Price Prediction', page_icon = img,layout = 'wide')
+img = Image.open("C:\\Users\\ukudh\\OneDrive\\Desktop\\MDTE11\\Project\CarDheko\\CarDekho.jpg")
+st.set_page_config(page_title = "Cardekho Resale Price Prediction", page_icon = img,layout = "wide")
 
 class multiapp:
     def __init__(self):
@@ -30,7 +31,16 @@ class multiapp:
         elif app == 'Data Analysis':
             Analysis.app()
         elif app == 'Data Prediction':
-            Prediction.app()
+            Predict.app()
+        
+    
+        # Add submit button to the form
+        #submitted = st.form_submit_button("Submit")
+        #if submitted:
+            #lst.success(f"Form submitted for {app}!")
+                # Add any additional logic here for form submission    
+        
+    
         
 app = multiapp()
 
@@ -38,7 +48,7 @@ app = multiapp()
 app.add_app("Home", Home.app)
 app.add_app("Data Filtering", Filtering.app)
 app.add_app("Data Analysis", Analysis.app)
-app.add_app("Data Prediction", Prediction.app)
+app.add_app("Data Prediction", Predict.app)
 
 # Run the multiapp
 app.run()
